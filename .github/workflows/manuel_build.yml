@@ -1,7 +1,7 @@
 name: Manuel Oraxen Derleyici
 
 on:
-  workflow_dispatch: # Bu satır sayesinde butona basıp elle tetikleyeceğiz
+  workflow_dispatch:
 
 jobs:
   build:
@@ -22,8 +22,15 @@ jobs:
       - name: Eklentiyi Derle (ShadowJar)
         run: ./gradlew shadowJar
 
-      - name: Hazır .JAR Dosyasını Teslim Et
+      - name: Klasör İçeriğini Listele (Hata Ayıklama)
+        run: |
+          echo "=== build/libs klasörünün içeriği ==="
+          ls -R build/libs/ || echo "Klasör bulunamadı!"
+
+      - name: Hazır .JAR Dosyasını Teslim Et (Genişletilmiş Yol)
         uses: actions/upload-artifact@v4
         with:
           name: Oraxen-Bedava-Premium
-          path: build/libs/*-all.jar
+          path: |
+            build/libs/*.jar
+            **/build/libs/*.jar
