@@ -6,7 +6,7 @@
   <br>
 </h1>
 
-<h4 align="center">Source code of the Oraxen Spigot plugin, made with love in Java.</h4>
+<h4 align="center">Source code of the Oraxen Paper plugin, made with love in Java.</h4>
 
 <p align="center">
   <a href="https://www.codefactor.io/repository/github/oraxen/oraxen">
